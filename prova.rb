@@ -4,9 +4,9 @@
 
 def pt_morse()
     puts "Digita uma frase qlqr sem caracteres especiais so o albeto e os numeros"
-    entra = gets.upcase.delete("\n")
+    entra = gets.upcase.delete("\n").gsub(" "," / ")
     for k in entra.delete(" ").chars
-        if not k in "A".."Z"
+        if !((k in "A".."Z") || (k in 0..9) || k == "/")
             pt_morse()
         end
     end
@@ -54,7 +54,7 @@ def morse_pt()
     puts "Digita uma frase qlqr em morse"
     entra = gets.delete("\n")
     for k in entra.delete(" ").chars
-        if !(k == "." || k == "-")
+        if !(k == "." || k == "-" || k == "/")
             morse_pt()
         end
     end
