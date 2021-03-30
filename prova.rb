@@ -6,7 +6,7 @@ def pt_morse()
     puts "Digita uma frase qlqr sem caracteres especiais so o albeto e os numeros"
     entra = gets.upcase.delete("\n").gsub(" "," / ")
     for k in entra.delete(" ").chars
-        if !((k in "A".."Z") || (k in 0..9) || k == "/")
+        if !((k in "A".."Z") || (k.to_i in 0..9) || k == "/")
             pt_morse()
         end
     end
